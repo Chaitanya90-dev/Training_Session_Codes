@@ -19,4 +19,6 @@
 |                | Postfix            |          |
 |                | Wild Card          |  Python  |
 |                |                    |          |
+| 15th June 2021 | Library Management |   SQL    |
+|                |   System SQL       |          |
 |                |                    |          |
