@@ -1,8 +1,8 @@
-// C++ program for the above approach
+
 #include <bits/stdc++.h>
 using namespace std;
 
-// Node Class
+
 class Node {
 public:
 	int roll;
@@ -12,21 +12,18 @@ public:
 	Node* next;
 };
 
-// Stores the head of the Linked List
 Node* head = new Node();
 
-// Check Function to check that if
-// Record Already Exist or Not
+
 bool check(int x)
 {
-	// Base Case
+
 	if (head == NULL)
 		return false;
 
 	Node* t = new Node;
 	t = head;
 
-	// Traverse the Linked List
 	while (t != NULL) {
 		if (t->roll == x)
 			return true;
@@ -36,18 +33,16 @@ bool check(int x)
 	return false;
 }
 
-// Function to insert the record
 void Insert_Record(int roll, string Name,
 				string Dept, int Marks)
 {
-	// if Record Already Exist
+
 	if (check(roll)) {
 		cout << "Student with this "
 			<< "record Already Exists\n";
 		return;
 	}
 
-	// Create new Node to Insert Record
 	Node* t = new Node();
 	t->roll = roll;
 	t->Name = Name;
@@ -55,14 +50,14 @@ void Insert_Record(int roll, string Name,
 	t->Marks = Marks;
 	t->next = NULL;
 
-	// Insert at Begin
+
 	if (head == NULL
 		|| (head->roll >= t->roll)) {
 		t->next = head;
 		head = t;
 	}
 
-	// Insert at middle or End
+
 	else {
 		Node* c = head;
 		while (c->next != NULL
@@ -77,18 +72,16 @@ void Insert_Record(int roll, string Name,
 		<< "Successfully\n";
 }
 
-// Function to search record for any
-// students Record with roll number
 void Search_Record(int roll)
 {
-	// if head is NULL
+	
 	if (!head) {
 		cout << "No such Record "
 			<< "Avialable\n";
 		return;
 	}
 
-	// Otherwise
+
 	else {
 		Node* p = head;
 		while (p) {
@@ -112,15 +105,12 @@ void Search_Record(int roll)
 	}
 }
 
-// Function to delete record students
-// record with given roll number
-// if it exist
 int Delete_Record(int roll)
 {
 	Node* t = head;
 	Node* p = NULL;
 
-	// Deletion at Begin
+	
 	if (t != NULL
 		&& t->roll == roll) {
 		head = t->next;
@@ -131,7 +121,6 @@ int Delete_Record(int roll)
 		return 0;
 	}
 
-	// Deletion Other than Begin
 	while (t != NULL && t->roll != roll) {
 		p = t;
 		t = t->next;
@@ -149,8 +138,6 @@ int Delete_Record(int roll)
 	}
 }
 
-// Function to display the Student's
-// Record
 void Show_Record()
 {
 	Node* p = head;
@@ -162,7 +149,7 @@ void Show_Record()
 		cout << "Index\tName\tCourse"
 			<< "\tMarks\n";
 
-		// Until p is not NULL
+		
 		while (p != NULL) {
 			cout << p->roll << " \t"
 				<< p->Name << "\t"
@@ -173,14 +160,14 @@ void Show_Record()
 	}
 }
 
-// Driver code
+
 int main()
 {
 	head = NULL;
 	string Name, Course;
 	int Roll, Marks;
 
-	// Menu-driven program
+
 	while (true) {
 		cout << "\n\t\tWelcome to Student Record "
 				"Management System\n\n\tPress\n\t1 to "
@@ -191,7 +178,7 @@ int main()
 		cout << "\nEnter your Choice\n";
 		int Choice;
 
-		// Enter Choice
+	
 		cin >> Choice;
 		if (Choice == 1) {
 			cout << "Enter Name of Student\n";
