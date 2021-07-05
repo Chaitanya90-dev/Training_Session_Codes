@@ -22,3 +22,7 @@
 | 15th June 2021 | Library Management |   SQL    |
 |                |   System SQL       |          |
 |                |                    |          |
+| 2nd July 2021  | Library Management | HTML CSS |
+|                | System HTML CSS    |JavaScript|
+|                | Javascript         |          | 
+|                |                    |          |                                             
