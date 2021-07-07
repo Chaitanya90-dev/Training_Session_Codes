@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Book Management System Table</h2>
+
+<table id="myTable">
+  <tr id="TR">
+    <th>Sr No</th>
+    <th>Book Name</th>
+    <th>Category</th>
+    <th>Author</th>
+    <th>Publication</th>
+    <th>Publish Date</th>
+    <th>Price</th>
+  </tr>
+  <tr id="TR">
+    <td id="TD">BL000001</td>
+    <td id="TD">Java For vDummies</td>
+    <td id="TD">Programming</td>
+    <td id="TD">Paul J. Deitel</td>
+    <td id="TD">Prentice Hall</td>
+    <td id="TD">1999-12-10</td>
+    <td id="TD">575.00</td>
+  </tr>
+  <tr id="TR">
+    <td id="TD">BL000002</td>
+    <td id="TD">Java: The Complete Reference</td>
+    <td id="TD">Programming</td>
+    <td id="TD">Herbert Schildt</td>
+    <td id="TD">Tata Mcgraw Hill</td>
+    <td id="TD">2011-10-10</td>
+    <td id="TD">750.00</td>
+  </tr>
+  <tr id="TR">
+    <td id="TD">BL000003</td>
+    <td id="TD">Let Us C'</td>
+    <td id="TD">Programming</td>
+    <td id="TD">Yashavant Kanetkar</td>
+    <td id="TD">BPB Publications</td>
+    <td id="TD">2010-12-11</td>
+    <td id="TD">500.00</td>
+  </tr>
+  <tr id="TR">
+    <td id="TD">BL000004</td>
+    <td id="TD">Clean Code</td>
+    <td id="TD">Programming</td>
+    <td id="TD">Robert Cecil Martin</td>
+    <td id="TD">Pearson Publications</td>
+    <td id="TD">2008-12-11</td>
+    <td id="TD">950.00</td>
+  </tr>
+  <tr id="TR">
+    <td id="TD">BL000005</td>
+    <td id="TD">InTDoduction to Algorithms</td>
+    <td id="TD">Programming</td>
+    <td id="TD">Thomas Cormen</td>
+    <td id="TD">MIT Press</td>
+    <td id="TD">2009-10-21</td>
+    <td id="TD">110.00</td>
+  </tr>
+  <tr id="TR">
+    <td id="TD">BL000006</td>
+    <td id="TD">Design Patterns</td>
+    <td id="TD">Programming</td>
+    <td id="TD">Erich Gamma</td>
+    <td id="TD">Addison-Wesley</td>
+    <td id="TD">1994-10-21</td>
+    <td id="TD">395.00</td>
+  </tr>
+</table>
+
+
+<br><br><br>
+
+<input type="text" id="rowValue" placeholder="Enter Row number">
+<button onclick="showDetailsOnClick()">Show Details</button>
+<div id="rowInfo"></div>
+<br><br><br><br><br>
+
+<button onclick="showTableOnClick()">Show Sorted Table By Book Name</button>
+<table id="myDynamicTable"></table>
+
+<br><br><br>
+
+<button onclick="showTableByPrice()">Show Sorted Table By Price</button>
+<table id="myDynamicTable2"></table>
+
+<!-- <p>Click the button to sort the table alphabetically, by name:</p>
+<p><button onclick="sortTable()">Sort</button></p> -->
+
+<script>
+    function showDetailsOnClick()
+        {
+            var userRow = document.getElementById('rowValue');
+            console.log(userRow.value);
+
+            var myTab = document.getElementById('myTable');
+            console.log(myTab.rows[userRow.value].innerText);
+
+            // rowValue = myTab.rows[userRow.value].innerText;
+            rowValue = myTab.rows[userRow.value]
+            displayValue = document.getElementById('rowInfo');
+            
+            console.log(displayValue)  
+
+            // for(var i=0; i<rowValue.cells.length; i++)
+            // {
+            //     console.log(rowValue.cells[i])
+            // }
+
+            displayValue.innerHTML = '<ul><li>Book ID: '+ rowValue.cells[0].innerText +'</li><li>Book Name:'+rowValue.cells[1].innerText + 
+                '</li><li>Category:'+rowValue.cells[2].innerText + '</li><li>Author:'+rowValue.cells[3].innerText + '</li><li>Publication:'+rowValue.cells[4].innerText +
+                    '</li><li>Publish Date:'+rowValue.cells[5].innerText +'</li><li>Price:'+rowValue.cells[6].innerText + '</li></ul>'
+               
+        }
+        
+        
+    function showTableOnClick()
+    {
+        var array_table = [{'Sr_no':'BL000001','Book_Name':'Java For vDummies','Category':'Programming',
+        'Author':'Paul J. Deitel','Publication':'Prentice Hall','Publish_Date':'1999-12-10','Price':'575.00'},
+        {'Sr_no':'BL000002','Book_Name':'Java: The Complete Reference','Category':'Programming',
+        'Author':'Herbert Schildt','Publication':'Tata Mcgraw Hill','Publish_Date':'2011-10-10','Price':'750.00'},
+        {'Sr_no':'BL000003','Book_Name':'Let Us C','Category':'Programming',
+        'Author':'Yashavant Kanetkar','Publication':'BPB Publications','Publish_Date':'2010-12-11','Price':'500.00'},
+        {'Sr_no':'BL000004','Book_Name':'Clean Code','Category':'Programming',
+        'Author':'Robert Cecil Martin','Publication':'Pearson Publications','Publish_Date':'2008-12-11','Price':'950.00'},
+        {'Sr_no':'BL000005','Book_Name':'Introduction to Algorithms','Category':'Programming',
+        'Author':'Thomas Cormen','Publication':'MIT Press','Publish_Date':'2009-10-21','Price':'110.00'},
+        {'Sr_no':'BL000006','Book_Name':'Design Patterns','Category':'Programming',
+        'Author':'Erich Gamma','Publication':'Addison-Wesley','Publish_Date':'1994-10-21','Price':'395.00'}]
+
+        // console.log(array_table)
+        
+        for(var i=0; i<array_table.length; i++)
+        {
+            console.log(array_table[i].Sr_no)
+        }
+
+        array_table.sort((a,b) =>
+        {
+            let fa = a.Book_Name.toLowerCase(),
+                fb = b.Book_Name.toLowerCase();
+
+            if (fa < fb)
+            {
+              return -1;
+            }
+
+            if (fa > fb)
+            {
+              return 1;
+            }
+            return 0;
+        });
+
+        array_table.forEach((e) =>
+        {
+          console.log(`${e.Book_Name}`);
+        });
+
+        function addTable() 
+        {
+            var myTableDiv = document.getElementById("myDynamicTable");
+
+            var table = document.createElement('TABLE');
+            table.border = '1';
+
+            table.style.border = '2px solid black';
+
+            var tableBody = document.createElement('TBODY');
+            table.appendChild(tableBody);
+
+            for(var i=0; i<array_table.length; i++)
+            {
+                var tr = document.createElement('TR');
+                tableBody.appendChild(tr);
+                var td = document.createElement('TD');
+                td.style.border = '2px solid black';
+                td.width = '75';
+                td.appendChild(document.createTextNode(array_table[i].Sr_no + ","));
+                td.appendChild(document.createTextNode(array_table[i].Book_Name + ","));
+                td.appendChild(document.createTextNode(array_table[i].Category + ","));
+                td.appendChild(document.createTextNode(array_table[i].Author + ","));
+                td.appendChild(document.createTextNode(array_table[i].Publication + ","));
+                td.appendChild(document.createTextNode(array_table[i].Publish_Date + ","));
+                td.appendChild(document.createTextNode(array_table[i].Price + ","));
+                tr.appendChild(td);
+            }
+            myTableDiv.appendChild(table);
+            myTableDiv.style.border = '2px solid black';
+        }
+        addTable();    
+    }   
+
+    function showTableByPrice()
+    {
+        var array_table = [{'Sr_no':'BL000001','Book_Name':'Java For vDummies','Category':'Programming',
+        'Author':'Paul J. Deitel','Publication':'Prentice Hall','Publish_Date':'1999-12-10','Price':'575.00'},
+        {'Sr_no':'BL000002','Book_Name':'Java: The Complete Reference','Category':'Programming',
+        'Author':'Herbert Schildt','Publication':'Tata Mcgraw Hill','Publish_Date':'2011-10-10','Price':'750.00'},
+        {'Sr_no':'BL000003','Book_Name':'Let Us C','Category':'Programming',
+        'Author':'Yashavant Kanetkar','Publication':'BPB Publications','Publish_Date':'2010-12-11','Price':'500.00'},
+        {'Sr_no':'BL000004','Book_Name':'Clean Code','Category':'Programming',
+        'Author':'Robert Cecil Martin','Publication':'Pearson Publications','Publish_Date':'2008-12-11','Price':'950.00'},
+        {'Sr_no':'BL000005','Book_Name':'Introduction to Algorithms','Category':'Programming',
+        'Author':'Thomas Cormen','Publication':'MIT Press','Publish_Date':'2009-10-21','Price':'110.00'},
+        {'Sr_no':'BL000006','Book_Name':'Design Patterns','Category':'Programming',
+        'Author':'Erich Gamma','Publication':'Addison-Wesley','Publish_Date':'1994-10-21','Price':'395.00'}]
+
+        // console.log(array_table)
+        
+        for(var i=0; i<array_table.length; i++)
+        {
+            console.log(array_table[i].Sr_no)
+        }
+
+        array_table.sort((a,b) =>
+        {
+            let fa = a.Price.toLowerCase(),
+                fb = b.Price.toLowerCase();
+
+            if (fa < fb)
+            {
+              return -1;
+            }
+
+            if (fa > fb)
+            {
+              return 1;
+            }
+            return 0;
+        });
+
+        array_table.forEach((e) =>
+        {
+          console.log(`${e.Price}`);
+        });
+
+        function addTable() 
+        {
+            var myTableDiv = document.getElementById("myDynamicTable2");
+
+            var table = document.createElement('TABLE');
+            table.border = '1';
+
+            table.style.border = '2px solid black';
+
+            var tableBody = document.createElement('TBODY');
+            table.appendChild(tableBody);
+
+            for(var i=0; i<array_table.length; i++)
+            {
+                var tr = document.createElement('TR');
+                tableBody.appendChild(tr);
+                var td = document.createElement('TD');
+                td.style.border = '2px solid black';
+                td.width = '75';
+                td.appendChild(document.createTextNode(array_table[i].Sr_no + ","));
+                td.appendChild(document.createTextNode(array_table[i].Book_Name + ","));
+                td.appendChild(document.createTextNode(array_table[i].Category + ","));
+                td.appendChild(document.createTextNode(array_table[i].Author + ","));
+                td.appendChild(document.createTextNode(array_table[i].Publication + ","));
+                td.appendChild(document.createTextNode(array_table[i].Publish_Date + ","));
+                td.appendChild(document.createTextNode(array_table[i].Price + ","));
+                tr.appendChild(td);
+            }
+            myTableDiv.appendChild(table);
+            myTableDiv.style.border = '2px solid black';
+        }
+        addTable();    
+    }   
+
+</script>
+
+</body>
+</html>
