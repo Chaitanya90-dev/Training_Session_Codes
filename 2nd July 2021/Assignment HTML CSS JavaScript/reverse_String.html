@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse String</title>
+</head>
+<body>
+    <h2>Reverse String</h2>
+    <h3>Original String</h3>
+    <p id="original"></p>
+    <!-- <button onclick="reverseString()"></button> -->
+    <h3>Reversed String</h3>
+    <p id="demo"></p>
+
+    <script>
+        function reverseString(str) 
+        {
+            if(str==="")
+            {
+                return "";
+            }
+
+            else
+            {
+                return reverseString(str.substr(1)) + str.charAt(0);
+            }
+        }
+        
+        var person = prompt("Please enter String", "Hello");
+        document.getElementById('original').innerHTML=person;
+        reverseStr=reverseString(person)
+        document.getElementById("demo").innerHTML = reverseStr;
+    </script>
+    
+</body>
+</html>

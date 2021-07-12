@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rice Gains on Chess Board</title>
+</head>
+<body>
+
+    <h2>Total Number of Rice Grains On Chess Board</h2>
+    
+    <h2 id="demo" style="font-weight: bold;"></h2>
+    <br>
+    <br>
+    <label>Enter the number of box on Chessboard</label><br>
+    <input type="text" id="inp">
+    <br>
+    <br>
+    <button onclick="riceGrains()">Click Here</button>
+    <p id="output"></p>
+    
+    <!-- <h2>Addition of Grains ....</h2> -->
+
+
+    <script>
+        function riceGrains()
+        {
+            var n = document.getElementById("inp").value;
+            var sum = 0;
+            var array_sum = [];
+            for(var n=1; n<=64; n++)
+            {
+                // console.log(n);
+                var m = Math.pow(2, n-1);
+                sum = sum + m;
+                // array_sum.push(sum);
+                // console.log(sum);
+                // console.log(array_sum);
+            }
+            
+            // array_sum.forEach(function(entry)
+            // {
+            //     // array_sum[entry]= array_sum[entry] + '<br>';
+            //     document.writeln("<br><br>"+entry);
+            //     return entry;
+            // });
+
+            var n = document.getElementById("inp").value;
+            if(n>0 && n<65)
+            {
+                var y = 2**(n-1);
+                document.getElementById("output").innerHTML = "Number of Grains : " + y;
+                console.log(y);
+            }
+            return sum;  
+            return y;
+        }
+
+        
+        document.getElementById('demo').innerHTML = riceGrains();
+        
+    </script>
+    
+</body>
+</html>

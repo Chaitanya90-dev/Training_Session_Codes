@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Number Operations</title>
+</head>
+<body>
+    <h2>Complex Number Operations</h2>
+
+    <h2>First Number:1+4i</h2>
+    <h2>Second Number:5+i</h2>
+
+    <h3>Addition</h3> 
+    <p id="demo"></p>
+
+    <h3>Substraction</h3> 
+    <p id="demo1"></p>
+
+    <h3>Multiplication</h3> 
+    <p id="demo2"></p>
+
+    <h3>Division</h3> 
+    <p id="demo3"></p>
+    
+    <script>
+        
+    
+        function Complex(real, imaginary) 
+        {
+            this.real = 0;
+            this.imaginary = 0;
+            this.real = (typeof real === 'undefined') ? this.real : parseFloat(real);
+            console.log(this.real);
+            this.imaginary = (typeof imaginary === 'undefined') ? this.imaginary : parseFloat(imaginary);
+            console.log(this.imaginary);
+        }
+
+        Complex.transform = function(num) 
+        {
+            var complex;
+            complex = (num instanceof Complex) ? num : complex;
+            complex = (typeof num === 'number') ? new Complex(num, 0) : num;
+            console.log(typeof(num));
+            console.log(complex);
+            return complex;
+        };
+
+        function display_complex(re, im) 
+        {
+            if(im === '0') return '' + re;
+            if(re === 0) return '' + im + 'i';
+            if(im < 0) return '' + re + im + 'i';
+            return '' + re + '+' + im + 'i';
+        }
+
+        var a = new Complex(2, -7);
+        var b = new Complex(4, 3);
+        const operator = prompt("Enter Operator(+,-,*,/): ");
+
+        switch(operator) 
+        {
+            case '+':
+                function complex_num_add(first, second) 
+                {
+                    var num1, num2;
+                    num1 = Complex.transform(first);
+                    num2 = Complex.transform(second);
+                    var real = num1.real + num2.real;
+                    var imaginary = num1.imaginary + num2.imaginary;
+                    return display_complex(real, imaginary);
+                }
+                document.getElementById('demo').innerHTML = complex_num_add(a,b);
+                break;
+            case '-':
+                function complex_num_sub(first, second) 
+                {
+                    var num1, num2;
+                    num1 = Complex.transform(first);
+                    num2 = Complex.transform(second);
+                    var real = num1.real - num2.real;
+                    var imaginary = num1.imaginary - num2.imaginary;
+                    return display_complex(real, imaginary);
+                }
+                document.getElementById('demo1').innerHTML = complex_num_sub(a,b);
+                break;
+            case '*':
+                function complex_num_mul(first, second) 
+                {
+                    var num1, num2;
+                    num1 = Complex.transform(first);
+                    num2 = Complex.transform(second);
+                    var real = (num1.real * num2.real)-(num1.imaginary * num2.imaginary);
+                    var imaginary = (num1.real * num2.imaginary)+(num1.imaginary * num2.real); 
+                    return display_complex(real, imaginary);
+                }
+                document.getElementById('demo2').innerHTML = complex_num_mul(a,b);
+                break;
+            case '/':
+                function complex_num_div(first, second) 
+                {
+                    var num1, num2;
+                    num1 = Complex.transform(first);    
+                    num2 = Complex.transform(second);
+                    var denom = num2.imaginary * num2.imaginary + num2.real * num2.real;
+                    var real = (num1.real * num2.real + num1.imaginary * num2.imaginary) /denom;
+                    var imaginary = (num2.real * num1.imaginary - num1.real * num2.imaginary) /denom;
+                    return display_complex(real, imaginary);
+                }
+                document.getElementById('demo3').innerHTML = complex_num_div(a,b);
+                break;
+
+            default:
+                console.log('Invalid operator');
+                break;
+        }
+    </script>
+</body>
+</html>

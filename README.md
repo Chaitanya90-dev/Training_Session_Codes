@@ -25,4 +25,26 @@
 | 2nd July 2021  | Library Management | HTML CSS |
 |                | System HTML CSS    |JavaScript|
 |                | Javascript         |          | 
-|                |                    |          |                                             
+|                |                    |          | 
+| 2nd July 2021  | Library Management | HTML CSS |
+|                | System HTML CSS    |JavaScript|
+|                | Javascript         |          | 
+|                |                    |          | 
+|                | Complex No         | HTML CSS |
+|                | Operations         |JavaScript|
+|                |                    |          |        
+|                | Double Linked List | HTML CSS | 
+|                |                    |JavaScript|
+|                |                    |          |        
+|                | Flattenend Array   | HTML CSS |
+|                |                    |JavaScript| 
+|                |                    |          |        
+|                | Reverse String     | HTML CSS |          
+|                |                    |JavaScript| 
+|                |                    |          |        
+|                | Rice Grain         | HTML CSS |
+|                | Chess Board        |JavaScript|        
+|                |                    |          |  
+|                | Word Counter       | HTML CSS |       
+|                |                    |JavaScript|        
+
