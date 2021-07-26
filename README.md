@@ -46,5 +46,13 @@
 |                | Chess Board        |JavaScript|        
 |                |                    |          |  
 |                | Word Counter       | HTML CSS |       
-|                |                    |JavaScript|        
+|                |                    |JavaScript| 
+|                |                    |          |       
+| 7th July 2021  | Complex Number API | Web Dev  |
+|                |                    |   API    |
+|                |                    |          | 
+|                | Weather App API    | Web Dev  |
+|                |                    |   API    |
+|                |                    |          |  
+
 
